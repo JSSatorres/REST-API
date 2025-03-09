@@ -5,6 +5,7 @@ import errorHandler from 'errorhandler'
 import { Server as HTTPServer } from 'http'
 import httpStatus from 'http-status'
 import { registerRoutes } from './routes/index.js'
+import { setupSwagger } from '../../swagger.js'
 
 export class Server {
   private express: express.Express
@@ -25,6 +26,11 @@ export class Server {
     if (process.env.NODE_ENV !== 'production') {
       this.express.use(errorHandler())
     }
+
+    setupSwagger(this.express)
+    this.express.get('/', (_req, res) => {
+      res.redirect('/docs')
+    })
 
     const router = express.Router()
     await registerRoutes(router)
