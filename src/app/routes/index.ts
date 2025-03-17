@@ -3,7 +3,10 @@ import { glob } from 'glob'
 import { pathToFileURL } from 'url'
 
 export async function registerRoutes(router: Router) {
-  const routes = await glob('src/app/routes/**/*.route.*', { absolute: true })
+  const isDevelopment = process.env.NODE_ENV === 'development'
+  const routesPattern = isDevelopment ? 'src/app/routes/**/*.route.ts' : 'dist/app/routes/**/*.route.js'
+
+  const routes = await glob(routesPattern, { absolute: true })
 
   await Promise.all(routes.map(route => register(route, router)))
 }
