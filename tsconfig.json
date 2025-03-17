@@ -1,19 +1,14 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "esModuleInterop": true,
-    "target": "ES6",
-    "noImplicitAny": true,
-    "sourceMap": false,
-    "rootDir": ".",
-    "strict": true,
-    "noEmit": true,
-    "resolveJsonModule": true,
-    "noUnusedLocals": true,
+    "target": "es2020",
+    "module": "commonjs",
     "outDir": "./dist",
-    "allowImportingTsExtensions": true
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*.ts", "test/**/*.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
 }

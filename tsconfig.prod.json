@@ -1,5 +1,9 @@
 {
   "extends": "./tsconfig.json",
-  "baseUrl": ".",
-  "exclude": ["node_modules", "tests"]
+  "compilerOptions": {
+    "outDir": "./dist",
+    "sourceMap": false,
+    "moduleResolution": "nodenext",
+    "module": "nodenext"
+  }
 }
