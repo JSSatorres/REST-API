@@ -14,7 +14,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=dev tsx watch ./src/app/start.ts",
     "lint": "eslint src/**/*.ts --fix",
-    "start:mooc:backend": "cross-env NODE_ENV=production node dist/src/apps/mooc/backend/start",
+    "start": "node dist/app/start.js",
     "build": "npm run build:clean && npm run build:tsc",
     "build:tsc": "tsc -p tsconfig.prod.json",
     "build:clean": "rimraf dist",
@@ -56,6 +56,8 @@
     "@types/cookie-parser": "^1.4.3",
     "@types/cookie-session": "^2.0.49",
     "@types/faker": "^5.5.3",
+    "@types/helmet": "^0.0.48",
+    "@types/http-status": "^0.2.30",
     "@types/jest": "^29.5.14",
     "@types/nunjucks": "^3.1.6",
     "@types/supertest": "^6.0.0",
