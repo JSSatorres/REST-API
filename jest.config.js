@@ -3,10 +3,13 @@ export default {
   testEnvironment: 'node',
   roots: ['<rootDir>/test'],
   transform: {
-    '^.+\\.tsx?$': 'ts-jest'
+    '^.+\\.tsx?$': ['ts-jest', { useESM: false }]
   },
-  moduleFileExtensions: ['ts', 'js', 'json'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.ts'],
-  coverageDirectory: 'coverage'
+  coverageDirectory: 'coverage',
+  moduleNameMapper: {
+    '^(\\.{1,2}/.*)\\.js$': '$1'
+  }
 }
