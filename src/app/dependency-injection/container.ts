@@ -1,6 +1,6 @@
 import { createContainer, asClass } from 'awilix'
-import StatusGetController from '../controllers/StatusGetController.js'
-import { UserPutController } from '../controllers/UserPutController.js'
+import StatusGetController from '../controllers/StatusGetController'
+import { UserPutController } from '../controllers/UserPutController'
 
 const container = createContainer({
   strict: true

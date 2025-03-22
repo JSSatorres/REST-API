@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express'
-import container from '../dependency-injection/container.js'
-import StatusGetController from '../controllers/StatusGetController.js'
+import container from '../dependency-injection/container'
+import StatusGetController from '../controllers/StatusGetController'
 
 export const register = (router: Router) => {
   const controller: StatusGetController = container.resolve('statusGetController')

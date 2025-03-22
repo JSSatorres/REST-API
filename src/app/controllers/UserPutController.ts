@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { Controller } from './Controller.js'
+import { Controller } from './Controller'
 
 export class UserPutController implements Controller {
   run(req: Request, res: Response): Promise<void> {

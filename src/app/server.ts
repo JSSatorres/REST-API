@@ -4,8 +4,8 @@ import compression from 'compression'
 import errorHandler from 'errorhandler'
 import { Server as HTTPServer } from 'http'
 import httpStatus from 'http-status'
-import { registerRoutes } from './routes/index.js'
-import { setupSwagger } from '../swagger.js'
+import { registerRoutes } from './routes/index'
+import { setupSwagger } from '../swagger'
 
 export class Server {
   private express: express.Express

@@ -1,4 +1,4 @@
-import { Server } from './server.js'
+import { Server } from './server'
 
 const port = process.env.PORT || '5000'
 const server = new Server(port)
