@@ -1,7 +1,11 @@
-const path = require('path')
+import path from 'path'
+import { fileURLToPath } from 'url'
 
-module.exports = {
-  entry: './src/app/start.ts', // Punto de entrada de tu aplicación
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+export default {
+  entry: './src/app/start.ts',
   module: {
     rules: [
       {
@@ -12,12 +16,12 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'] // Resuelve las extensiones
+    extensions: ['.tsx', '.ts', '.js']
   },
   output: {
-    filename: 'bundle.js', // Nombre del archivo de salida
-    path: path.resolve(__dirname, 'dist') // Carpeta de salida
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
   },
-  target: 'node', // Indica que el destino es Node.js
-  mode: 'production' // Establece el modo a producción para optimizaciones
+  target: 'node',
+  mode: 'production'
 }
