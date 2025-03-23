@@ -20,4 +20,4 @@ RUN npm run build
 EXPOSE 5000
 
 # 8️⃣ Comando de inicio del servidor
-CMD ["node", "dist/app/start.js"]
+CMD ["node", "dist/bundle.js"]
