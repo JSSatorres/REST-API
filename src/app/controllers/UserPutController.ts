@@ -1,10 +1,14 @@
 import { Request, Response } from 'express'
 import { Controller } from './Controller'
+import { UserCreator } from 'Context/User/application/UserCreator'
 
 export class UserPutController implements Controller {
-  run(req: Request, res: Response): Promise<void> {
-    throw new Error('Method not implemented.')
-    // const user = await this.userPutService.run(req.body, req.params.id)
-    // res.status(200).json(user)
+  constructor(private userCreator: UserCreator) {}
+  async run(req: Request, res: Response): Promise<void> {
+    const { id, name, email, password } = req.body
+
+    await this.userCreator.run(id, name, email, password)
+
+    res.status(httpStatus.CREATED).send()
   }
 }
