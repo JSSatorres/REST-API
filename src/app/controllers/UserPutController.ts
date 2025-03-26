@@ -7,7 +7,7 @@ export class UserPutController implements Controller {
   async run(req: Request, res: Response): Promise<void> {
     const { id, name, email, password } = req.body
 
-    await this.userCreator.run(id, name, email, password)
+    await this.userCreator.run({ id, name, email, password })
 
     res.status(httpStatus.CREATED).send()
   }
