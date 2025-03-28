@@ -1,16 +1,16 @@
-import { UserEmail } from 'Context/User/domain/UserEmail'
-import { UserName } from 'Context/User/domain/UserName'
-import { UserPassword } from 'Context/User/domain/UserPassword'
-import { Uuid } from 'Context/Shared/domain/value-object/Uuid'
-import { AggregateRoot } from 'Context/Shared/domain/AggregateRoot'
+import { AggregateRoot } from '../../Shared/domain/AggregateRoot'
+import { UserEmail } from './UserEmail'
+import { UserId } from './UserId'
+import { UserName } from './UserName'
+import { UserPassword } from './UserPassword'
 
 export class User extends AggregateRoot {
-  readonly id: Uuid
+  readonly id: UserId
   readonly name: UserName
   readonly email: UserEmail
   readonly password: UserPassword
 
-  constructor({ id, name, email, password }: { id: Uuid; name: UserName; email: UserEmail; password: UserPassword }) {
+  constructor({ id, name, email, password }: { id: UserId; name: UserName; email: UserEmail; password: UserPassword }) {
     super()
     this.id = id
     this.name = name
@@ -20,7 +20,7 @@ export class User extends AggregateRoot {
 
   static fromPrimitives(plainData: { id: string; name: string; email: string; password: string }): User {
     return new User({
-      id: new Uuid(plainData.id),
+      id: new UserId(plainData.id),
       name: new UserName(plainData.name),
       email: new UserEmail(plainData.email),
       password: new UserPassword(plainData.password)

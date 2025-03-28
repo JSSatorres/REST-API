@@ -1,4 +1,4 @@
-import { StringValueObject } from 'Context/Shared/domain/value-object/StringValueObject'
+import { StringValueObject } from '../../Shared/domain/value-object/StringValueObject'
 import { InvalidArgumentError } from '../../Shared/domain/value-object/InvalidArgumentError'
 
 export class UserEmail extends StringValueObject {
@@ -7,13 +7,13 @@ export class UserEmail extends StringValueObject {
     this.ensureIsValidEmail(value)
   }
 
-  private ensureIsValidEmail(email: string): void {
-    if (!this.isValidEmail(email)) {
-      throw new InvalidArgumentError(`<${this.constructor.name}> does not allow the value <${email}>`)
+  private ensureIsValidEmail(value: string): void {
+    if (!this.isValidEmail(value)) {
+      throw new InvalidArgumentError(`<${this.constructor.name}> does not allow the value <${value}>`)
     }
   }
 
-  private isValidEmail(email: string): boolean {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  private isValidEmail(value: string): boolean {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
   }
 }
