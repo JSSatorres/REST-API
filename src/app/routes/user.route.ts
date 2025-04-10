@@ -1,0 +1,8 @@
+import { Router } from 'express'
+import container from '../dependency-injection/container'
+import { UserPutController } from '../controllers/UserPutController'
+
+export const register = (router: Router) => {
+  const controller: UserPutController = container.resolve('userPutController')
+  router.put('/user/:id', (req, res) => controller.run(req, res))
+}
