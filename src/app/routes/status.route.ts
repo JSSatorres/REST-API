@@ -4,5 +4,8 @@ import StatusGetController from '../controllers/StatusGetController'
 
 export const register = (router: Router) => {
   const controller: StatusGetController = container.resolve('statusGetController')
-  router.get('/status', (req: Request, res: Response) => controller.run(req, res))
+
+  router.get('/status', (req: Request, res: Response) => {
+    controller.run(req, res)
+  })
 }
