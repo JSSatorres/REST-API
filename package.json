@@ -21,7 +21,9 @@
     "build:webpack": "webpack --config webpack.config.js",
     "test": "jest --config jest.config.js",
     "test:watch": "jest --watch --config jest.config.js",
-    "test:coverage": "jest --coverage --config jest.config.js"
+    "test:coverage": "jest --coverage --config jest.config.js",
+    "swagger-autogen": "ts-node src/Shared/config/docs/swagger.config.ts",
+    "swagger": "node swagger.js"
   },
   "dependencies": {
     "@faker-js/faker": "^9.6.0",
@@ -46,6 +48,7 @@
     "glob": "^11.0.1",
     "helmet": "^6.1.2",
     "http-status": "^2.0.0",
+    "mongodb": "^6.15.0",
     "nunjucks": "^3.2.4",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
@@ -62,6 +65,7 @@
     "@types/helmet": "^0.0.48",
     "@types/http-status": "^0.2.30",
     "@types/jest": "^29.5.14",
+    "@types/mongodb": "^4.0.6",
     "@types/nunjucks": "^3.1.6",
     "@types/supertest": "^6.0.0",
     "@types/swagger-jsdoc": "^6.0.4",
@@ -76,6 +80,7 @@
     "prettier": "^3.0.3",
     "rimraf": "^6.0.1",
     "supertest": "^7.0.0",
+    "swagger-autogen": "^2.23.7",
     "ts-jest": "^29.2.6",
     "ts-loader": "^9.5.2",
     "ts-node-dev": "^2.0.0",

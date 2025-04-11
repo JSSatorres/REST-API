@@ -5,7 +5,7 @@ import errorHandler from 'errorhandler'
 import { Server as HTTPServer } from 'http'
 import httpStatus from 'http-status'
 import { registerRoutes } from './routes/index'
-import { setupSwagger } from '../swagger'
+import { setupSwagger } from 'Shared/config/docs/swagger'
 
 export class Server {
   private express: express.Express
