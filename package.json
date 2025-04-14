@@ -22,7 +22,7 @@
     "test": "jest --config jest.config.js",
     "test:watch": "jest --watch --config jest.config.js",
     "test:coverage": "jest --coverage --config jest.config.js",
-    "swagger-autogen": "ts-node src/Shared/config/docs/swagger.config.ts",
+    "swagger-autogen": "tsx src/Shared/config/docs/swagger.config.ts",
     "swagger": "node swagger.js"
   },
   "dependencies": {
@@ -31,7 +31,6 @@
     "@types/errorhandler": "^1.5.0",
     "@types/express": "^4.17.13",
     "@types/glob": "^7.2.0",
-    "@types/node": "^18.0.0",
     "awilix": "^12.0.4",
     "awilix-express": "^9.0.2",
     "body-parser": "^1.20.2",
@@ -52,8 +51,6 @@
     "nunjucks": "^3.2.4",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.2.2",
     "uuid": "^11.1.0",
     "winston": "^3.8.2"
   },
@@ -66,6 +63,7 @@
     "@types/http-status": "^0.2.30",
     "@types/jest": "^29.5.14",
     "@types/mongodb": "^4.0.6",
+    "@types/node": "^22.14.1",
     "@types/nunjucks": "^3.1.6",
     "@types/supertest": "^6.0.0",
     "@types/swagger-jsdoc": "^6.0.4",
@@ -83,8 +81,10 @@
     "swagger-autogen": "^2.23.7",
     "ts-jest": "^29.2.6",
     "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "tsx": "^4.19.3",
+    "typescript": "^5.8.3",
     "webpack": "^5.98.0",
     "webpack-cli": "^6.0.1"
   },
