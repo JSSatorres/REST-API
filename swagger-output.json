@@ -11,6 +11,16 @@
       "description": "Servidor de desarrollo"
     }
   ],
+  "tags": [
+    {
+      "name": "user",
+      "description": "Operaciones relacionadas con user"
+    },
+    {
+      "name": "status",
+      "description": "Operaciones relacionadas con status"
+    }
+  ],
   "paths": {
     "/": {
       "get": {
@@ -39,7 +49,10 @@
           "default": {
             "description": ""
           }
-        }
+        },
+        "tags": [
+          "user"
+        ]
       }
     },
     "/status": {
@@ -49,7 +62,10 @@
           "default": {
             "description": ""
           }
-        }
+        },
+        "tags": [
+          "status"
+        ]
       }
     }
   },
