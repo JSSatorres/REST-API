@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "REST API - TypeScript + Express",
-    "description": "API generada automáticamente con swagger-autogen",
+    "description": "API generada automáticamente",
     "version": "1.0.0"
   },
   "servers": [
@@ -13,12 +13,10 @@
   ],
   "tags": [
     {
-      "name": "user",
-      "description": "Operaciones relacionadas con user"
+      "name": "user"
     },
     {
-      "name": "status",
-      "description": "Operaciones relacionadas con status"
+      "name": "status"
     }
   ],
   "paths": {
