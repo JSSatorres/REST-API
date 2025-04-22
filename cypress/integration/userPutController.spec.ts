@@ -1,3 +1,8 @@
+// No es necesario importar estos elementos, Cypress los proporciona globalmente
+// import { describe, it } from 'mocha'
+// import { expect } from 'chai'
+// import cy from 'cypress'
+
 describe('UserPutController', () => {
   it('should create a user successfully', () => {
     const user = {
