@@ -13,13 +13,14 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      "*": ["src/*", "node_modules/*"]
+      "*": ["src/*", "node_modules/*", "cypress"]
     },
     "isolatedModules": true,
     "noEmit": false,
     "allowJs": true,
-    "moduleDetection": "force"
+    "moduleDetection": "force",
+    "types": ["cypress"] // Incluye los tipos de Cypress
   },
-  "include": ["src"],
+  "include": ["src", "cypress"], // Asegúrate de incluir la carpeta de Cypress
   "exclude": ["node_modules"]
 }
