@@ -1,4 +1,4 @@
-name: Deploy to Render
+name: Test and Deploy
 
 on:
   push:
@@ -9,8 +9,8 @@ on:
       - main
 
 jobs:
-  deploy:
-    name: Deploy to Render
+  test:
+    name: Test Application
     runs-on: ubuntu-latest
     steps:
       - name: 🛎️ Checkout repository
@@ -20,13 +20,44 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'npm' # Habilita caché para npm
 
       - name: 📦 Install dependencies
-        run: npm install
+        run: npm ci # Usa 'ci' en lugar de 'install' para CI/CD
+
+      - name: 🧪 Run tests
+        run: npm test
+
+  deploy:
+    name: Deploy to Render
+    needs: test # Solo ejecuta este job si 'test' pasa
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' # Solo despliega en push a main
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛎️ Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🟢 Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm' # Habilita caché para npm
+
+      - name: 📦 Install dependencies
+        run: npm ci # Usa 'ci' en lugar de 'install' para CI/CD
 
       - name: 🏗️ Build with Webpack
         run: npm run build
 
+      - name: 🔍 Verify Render hook is configured
+        run: |
+          if [ -z "${{ secrets.RENDER_DEPLOY_HOOK }}" ]; then
+            echo "⚠️ RENDER_DEPLOY_HOOK no está configurado en los secretos de GitHub"
+            exit 1
+          fi
+
       - name: 🔥 Deploy to Render
         run: |
+          echo "Iniciando despliegue a Render..."
           curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
+          echo "✅ Solicitud de despliegue enviada"
