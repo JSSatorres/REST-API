@@ -17,13 +17,17 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          # Eliminamos la caché que causaba el error
 
       - name: Install dependencies
         run: npm install
 
       - name: Build application
-        run: npm run build
+        run: |
+          echo "Verificando estructura de archivos..."
+          ls -la src/Shared/config/docs/
+          echo "Iniciando build..."
+          npm run build
+        continue-on-error: false # Falla el workflow si el build falla
 
       - name: Deploy to Render
         if: success()

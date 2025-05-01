@@ -3,7 +3,7 @@
     "target": "ES2020", // O "esnext" si quieres las últimas características
     "module": "ESNext", // Usamos módulos ES
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "./", // Cambiar de "./src" a "./" para incluir archivos fuera de src
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import { Controller } from './Controller'
 import { UserCreator } from 'Context/User/application/UserCreator'
+import httpStatus from 'http-status'
 
 export class UserPutController implements Controller {
   constructor(private userCreator: UserCreator) {}
