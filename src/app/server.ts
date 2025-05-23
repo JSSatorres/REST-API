@@ -57,17 +57,16 @@ export class Server {
   }
 
   async stop(): Promise<void> {
-    return new Promise((resolve, reject) => {
-      if (this.httpServer) {
-        this.httpServer.close(error => {
+    if (this.httpServer) {
+      await new Promise<void>((resolve, reject) => {
+        this.httpServer!.close(error => {
           if (error) {
-            return reject(error)
+            reject(error)
+          } else {
+            resolve()
           }
-          return resolve()
         })
-      } else {
-        resolve()
-      }
-    })
+      })
+    }
   }
 }
